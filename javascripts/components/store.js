@@ -1,3 +1,6 @@
+import cart from './cart.js';
+import utilities from '../helpers/utilities.js';
+
 const bookInfo = {
   title: 'My Book',
   price: '19.99',
@@ -6,25 +9,22 @@ const bookInfo = {
 
 
 
-
-const printToDom = (divId, toPrint) => {
-  const selectedDiv = document.getElementById(divId);
-  selectedDiv.innerHTML = toPrint;
+const addToCartEvent = () => {
+  cart.setCart(bookInfo);
+  cart.cartToDom();
 };
 
-const addToCartEvent = () => {
-  console.log('added to cart');
-}
 
 
 const makeStore = () => {
   let domString = '<h2>Our only book:</h2>';
   domString += '<p>Buy it now:</p>';
+  domString += `<h1>${bookInfo.title}</h1>`;
   domString += `<h3>$${bookInfo.price}</h3>`;
   domString += `<img src=${bookInfo.image} alt="book cover"/>`;
   domString += '<button id="cart-button" class="btn btn-danger col-12">Add to cart</button>';
 
-  printToDom('store-container', domString);
+  utilities.printToDom('store-container', domString);
   document.getElementById('cart-button').addEventListener('click', addToCartEvent);
 };
 
