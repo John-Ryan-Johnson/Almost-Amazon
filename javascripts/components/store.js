@@ -22,7 +22,7 @@ const makeStore = () => {
   domString += `<h1>${bookInfo.title}</h1>`;
   domString += `<h3>$${bookInfo.price}</h3>`;
   domString += `<img src=${bookInfo.image} alt="book cover"/>`;
-  domString += '<button id="cart-button" class="btn btn-danger col-12">Add to cart</button>';
+  domString += '<button id="cart-button" class="btn btn-danger col-10 mt-3">Add to cart</button>';
 
   utilities.printToDom('store-container', domString);
   document.getElementById('cart-button').addEventListener('click', addToCartEvent);
